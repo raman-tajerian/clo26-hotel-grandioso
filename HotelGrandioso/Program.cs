@@ -7,3 +7,5 @@
 
 Console.WriteLine("=== Hotel Grandioso ===");
 Console.WriteLine("Projektet startar här. Ta bort den här raden när du börjat bygga.");
+
+
