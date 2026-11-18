@@ -29,13 +29,7 @@ namespace HotelGrandioso.Migrations
                     b.Property<DateOnly>("CheckOut")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("TEXT");
-
                     b.Property<int>("GuestId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<bool>("IsCancelled")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("RoomId")
@@ -56,28 +50,11 @@ namespace HotelGrandioso.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Email")
+                    b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Phone")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("Email")
-                        .IsUnique();
 
                     b.ToTable("Guests");
                 });
@@ -88,20 +65,27 @@ namespace HotelGrandioso.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("Number")
+                    b.Property<int>("Floor")
                         .HasColumnType("INTEGER");
 
                     b.Property<decimal>("PricePerNight")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Type")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<int>("RoomNumber")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("RoomTypeId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("SizeM2")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Number")
+                    b.HasIndex("RoomNumber")
                         .IsUnique();
+
+                    b.HasIndex("RoomTypeId");
 
                     b.ToTable("Rooms");
 
@@ -109,58 +93,251 @@ namespace HotelGrandioso.Migrations
                         new
                         {
                             Id = 1,
-                            Number = 101,
-                            PricePerNight = 900m,
-                            Type = "Single"
+                            Floor = 1,
+                            PricePerNight = 800m,
+                            RoomNumber = 101,
+                            RoomTypeId = 1,
+                            SizeM2 = 80
                         },
                         new
                         {
                             Id = 2,
-                            Number = 102,
-                            PricePerNight = 900m,
-                            Type = "Single"
+                            Floor = 1,
+                            PricePerNight = 800m,
+                            RoomNumber = 102,
+                            RoomTypeId = 1,
+                            SizeM2 = 80
                         },
                         new
                         {
                             Id = 3,
-                            Number = 103,
-                            PricePerNight = 950m,
-                            Type = "Single"
+                            Floor = 1,
+                            PricePerNight = 800m,
+                            RoomNumber = 103,
+                            RoomTypeId = 1,
+                            SizeM2 = 80
                         },
                         new
                         {
                             Id = 4,
-                            Number = 201,
-                            PricePerNight = 1400m,
-                            Type = "Double"
+                            Floor = 1,
+                            PricePerNight = 800m,
+                            RoomNumber = 104,
+                            RoomTypeId = 1,
+                            SizeM2 = 80
                         },
                         new
                         {
                             Id = 5,
-                            Number = 202,
-                            PricePerNight = 1400m,
-                            Type = "Double"
+                            Floor = 1,
+                            PricePerNight = 800m,
+                            RoomNumber = 105,
+                            RoomTypeId = 1,
+                            SizeM2 = 80
                         },
                         new
                         {
                             Id = 6,
-                            Number = 203,
-                            PricePerNight = 1600m,
-                            Type = "Double"
+                            Floor = 2,
+                            PricePerNight = 1000m,
+                            RoomNumber = 201,
+                            RoomTypeId = 1,
+                            SizeM2 = 100
                         },
                         new
                         {
                             Id = 7,
-                            Number = 301,
-                            PricePerNight = 2900m,
-                            Type = "Suite"
+                            Floor = 2,
+                            PricePerNight = 1000m,
+                            RoomNumber = 202,
+                            RoomTypeId = 1,
+                            SizeM2 = 100
                         },
                         new
                         {
                             Id = 8,
-                            Number = 302,
-                            PricePerNight = 3400m,
-                            Type = "Suite"
+                            Floor = 2,
+                            PricePerNight = 1000m,
+                            RoomNumber = 203,
+                            RoomTypeId = 1,
+                            SizeM2 = 100
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Floor = 2,
+                            PricePerNight = 1000m,
+                            RoomNumber = 204,
+                            RoomTypeId = 1,
+                            SizeM2 = 100
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Floor = 2,
+                            PricePerNight = 1000m,
+                            RoomNumber = 205,
+                            RoomTypeId = 1,
+                            SizeM2 = 100
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Floor = 3,
+                            PricePerNight = 1200m,
+                            RoomNumber = 301,
+                            RoomTypeId = 1,
+                            SizeM2 = 120
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Floor = 3,
+                            PricePerNight = 1200m,
+                            RoomNumber = 302,
+                            RoomTypeId = 1,
+                            SizeM2 = 120
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Floor = 3,
+                            PricePerNight = 1200m,
+                            RoomNumber = 303,
+                            RoomTypeId = 1,
+                            SizeM2 = 120
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Floor = 3,
+                            PricePerNight = 2800m,
+                            RoomNumber = 304,
+                            RoomTypeId = 2,
+                            SizeM2 = 180
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Floor = 3,
+                            PricePerNight = 3500m,
+                            RoomNumber = 305,
+                            RoomTypeId = 3,
+                            SizeM2 = 220
+                        });
+                });
+
+            modelBuilder.Entity("HotelGrandioso.Models.RoomType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("RoomTypes");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Description = "Standardrum",
+                            Name = "Standard"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Description = "Lyxsvit",
+                            Name = "Luxury"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Description = "Bröllopsvit",
+                            Name = "Bridal"
+                        });
+                });
+
+            modelBuilder.Entity("HotelGrandioso.Models.SpaBooking", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("GuestId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("TreatmentId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("GuestId");
+
+                    b.HasIndex("TreatmentId");
+
+                    b.ToTable("SpaBookings");
+                });
+
+            modelBuilder.Entity("HotelGrandioso.Models.Treatment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("DurationMinutes")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Treatments");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            DurationMinutes = 60,
+                            Name = "Entré (per timme)",
+                            Price = 150m
+                        },
+                        new
+                        {
+                            Id = 2,
+                            DurationMinutes = 60,
+                            Name = "Massage",
+                            Price = 950m
+                        },
+                        new
+                        {
+                            Id = 3,
+                            DurationMinutes = 30,
+                            Name = "Pedikyr (stortån)",
+                            Price = 350m
+                        },
+                        new
+                        {
+                            Id = 4,
+                            DurationMinutes = 45,
+                            Name = "Pedikyr (hel fot)",
+                            Price = 650m
                         });
                 });
 
@@ -175,7 +352,7 @@ namespace HotelGrandioso.Migrations
                     b.HasOne("HotelGrandioso.Models.Room", "Room")
                         .WithMany("Bookings")
                         .HasForeignKey("RoomId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Guest");
@@ -183,14 +360,56 @@ namespace HotelGrandioso.Migrations
                     b.Navigation("Room");
                 });
 
+            modelBuilder.Entity("HotelGrandioso.Models.Room", b =>
+                {
+                    b.HasOne("HotelGrandioso.Models.RoomType", "RoomType")
+                        .WithMany("Rooms")
+                        .HasForeignKey("RoomTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("RoomType");
+                });
+
+            modelBuilder.Entity("HotelGrandioso.Models.SpaBooking", b =>
+                {
+                    b.HasOne("HotelGrandioso.Models.Guest", "Guest")
+                        .WithMany("SpaBookings")
+                        .HasForeignKey("GuestId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("HotelGrandioso.Models.Treatment", "Treatment")
+                        .WithMany("SpaBookings")
+                        .HasForeignKey("TreatmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Guest");
+
+                    b.Navigation("Treatment");
+                });
+
             modelBuilder.Entity("HotelGrandioso.Models.Guest", b =>
                 {
                     b.Navigation("Bookings");
+
+                    b.Navigation("SpaBookings");
                 });
 
             modelBuilder.Entity("HotelGrandioso.Models.Room", b =>
                 {
                     b.Navigation("Bookings");
+                });
+
+            modelBuilder.Entity("HotelGrandioso.Models.RoomType", b =>
+                {
+                    b.Navigation("Rooms");
+                });
+
+            modelBuilder.Entity("HotelGrandioso.Models.Treatment", b =>
+                {
+                    b.Navigation("SpaBookings");
                 });
 #pragma warning restore 612, 618
         }

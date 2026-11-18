@@ -13,7 +13,6 @@ public class Booking
     public Room Room { get; set; } = null!;
     public DateOnly CheckIn { get; set; }
     public DateOnly CheckOut { get; set; } // Räknar ej utcheckningsdag som en natt
-    public bool IsCancelled { get; set; }
-    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
 }
 

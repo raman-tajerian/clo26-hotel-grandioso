@@ -4,7 +4,7 @@ using System.Text;
 
 namespace HotelGrandioso.Services
 {
-    internal class RoomRepository
+    internal class HotelRepository
     {
     }
 }
