@@ -8,7 +8,7 @@ Console.InputEncoding = System.Text.Encoding.UTF8;
 
 using var db = new HotelContext();
 
-// Skapar databasen och kör migrationer
+// // Migrate skapar databasen första gången, så att den som klonar repot slipper göra det själv.
 db.Database.Migrate();
 
 var repository = new HotelRepository(db);
