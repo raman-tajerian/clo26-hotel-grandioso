@@ -98,7 +98,9 @@ public class BookingService
     private Guest GetOrCreateGuest(string name)
     {
         var guest = _repository.GetGuestByName(name.Trim());
-        return guest ?? new Guest { Name = name.Trim() };
+        if (guest == null)
+            guest = new Guest { Name = name.Trim() };
+        return guest;
     }
 
     private static void ValidateName(string name)
