@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace HotelGrandioso.Models;
+﻿namespace HotelGrandioso.Models;
 
 public class Booking
 {

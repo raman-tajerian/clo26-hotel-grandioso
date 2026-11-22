@@ -29,7 +29,7 @@ public class HotelContext : DbContext
             new RoomType { Id = 2, Name = "Luxury", Description = "Lyxsvit" },
             new RoomType { Id = 3, Name = "Bridal", Description = "Bröllopsvit" });
 
-        // Rummen byggs med hjälpmetod
+        // Rummen byggs med en hjälpmetod istället för en massa nästan likadana rader 
         var rooms = new List<Room>();
         var nextId = 1;
 
